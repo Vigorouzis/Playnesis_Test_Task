@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class GiveExpScript : InteractiveObject
 {
-    [SerializeField] private PlayerIndicators _playerIndicators;
+    [SerializeField] private QuantitiesForChanges _quantities;
 
     protected override void BasicAction()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out var hit))
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity))
             {
-                if (hit.transform.name == "ExpSphere")
+                if (hit.transform.TryGetComponent<GiveExpScript>(out var component) && component != null)
                 {
-                    _playerIndicators.experience += 10;
+                    _playerIndicators.experience += _quantities.addExp;
                 }
             }
         }

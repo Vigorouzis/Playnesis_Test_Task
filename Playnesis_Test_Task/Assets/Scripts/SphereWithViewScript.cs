@@ -8,18 +8,24 @@ public class SphereWithViewScript : InteractiveObject
 {
     [SerializeField] private Text _textAboveObject;
 
+   
+
     protected override void BasicAction()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out var hit))
             {
-                Debug.Log(hit.transform.name);
-                if (hit.transform.name == "SphereWithView")
+                if (hit.transform.TryGetComponent<SphereWithViewScript>(out var component) && component != null)
                 {
-                    _textAboveObject.gameObject.SetActive(true);
+                    var canvas = GameObject.Find("Canvas");
+                    
+                    var text = Instantiate(_textAboveObject, new Vector3(-137.7633f, -58.13029f, 0),
+                        transform.rotation);
+                    //Parent to the panel
+                    text.transform.SetParent(canvas.transform, false);
                 }
             }
         }

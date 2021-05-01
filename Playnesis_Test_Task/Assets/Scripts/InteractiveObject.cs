@@ -10,7 +10,7 @@ public class InteractiveObject : MonoBehaviour
 
     public Renderer rend;
     private float _maxRange = 10f;
-    [SerializeField] protected GameObject _player;
+    [SerializeField] protected PlayerIndicators _playerIndicators;
     protected static readonly int Property = Shader.PropertyToID("_Outline");
 
 
@@ -23,17 +23,16 @@ public class InteractiveObject : MonoBehaviour
     private void Update()
     {
         BasicAction();
-        InvokeRepeating(nameof(CheckDistance), 0f, 1f);
+        InvokeRepeating(nameof(CheckDistance), 0f, 0.1f);
     }
 
     private void CheckDistance()
     {
-        if (Vector3.Distance(gameObject.transform.position, _player.transform.position) <= _maxRange)
+        if (Vector3.Distance(gameObject.transform.position, _playerIndicators.position) <= _maxRange)
         {
-            if (Physics.Raycast(transform.position, (_player.transform.position - transform.position), out var hit,
+            if (Physics.Raycast(transform.position, (_playerIndicators.position - transform.position), out var hit,
                 _maxRange))
             {
-                Debug.DrawRay(transform.position, hit.transform.position, Color.yellow);
                 if (hit.transform.CompareTag("Player"))
                 {
                     rend.material.SetFloat(Property, 0.5f);

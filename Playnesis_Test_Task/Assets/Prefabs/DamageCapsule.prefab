@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 5270231583930027139}
-  _player: {fileID: 0}
   _playerIndicators: {fileID: 11400000, guid: d4f34e5ee86da02458e208d8a67744b8, type: 2}
+  _quantities: {fileID: 11400000, guid: a5e3c75d0ab18db4a93a1b10da6ddccb, type: 2}

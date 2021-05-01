@@ -6,8 +6,8 @@ public class PlayerCharacter : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Camera _camera;
-    [SerializeField] private PlayerIndicators _playerIndicators;
-
+    [SerializeField]
+    private PlayerIndicators _playerIndicators;
 
     private void Start()
     {
@@ -19,6 +19,7 @@ public class PlayerCharacter : MonoBehaviour
     private void Update()
     {
         Move();
+        _playerIndicators.position = transform.position;
     }
 
     private void Move()
@@ -29,6 +30,7 @@ public class PlayerCharacter : MonoBehaviour
             if (Physics.Raycast(ray, out var hit, Mathf.Infinity))
             {
                 _agent.SetDestination(hit.point);
+                
             }
         }
     }

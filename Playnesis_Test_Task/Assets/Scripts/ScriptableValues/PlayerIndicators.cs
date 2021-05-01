@@ -7,5 +7,6 @@ namespace ScriptableValues
     {
         public double health;
         public double experience;
-    }
+        public Vector3 position;
+        }
 }

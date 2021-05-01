@@ -109,5 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 4826711838110571635}
-  _player: {fileID: 8178809885975580430, guid: e6b62ca774d0f2e489dbfd12b6884649, type: 3}
-  _textAboveObject: {fileID: 7012956689668773520, guid: 5f6ff413bb215264ea3bc97ae8fa8ca8, type: 3}
+  _playerIndicators: {fileID: 11400000, guid: d4f34e5ee86da02458e208d8a67744b8, type: 2}
+  _textAboveObject: {fileID: 8145471819618369671, guid: 80d89a2d6e5b19149aa9c38619012153, type: 3}
