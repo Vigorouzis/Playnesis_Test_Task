@@ -1,25 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeScript : MonoBehaviour
+public class CubeScript : InteractiveObject
 {
     private int _destroyCount = 0;
-    private Camera _camera;
 
-    void Start()
-    {
-        _camera = Camera.main;
-    }
 
-   private void Update()
+    
+
+    protected override void BasicAction()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out var hit))
             {
                 if (hit.transform.name == "CubeForDelete")
                 {

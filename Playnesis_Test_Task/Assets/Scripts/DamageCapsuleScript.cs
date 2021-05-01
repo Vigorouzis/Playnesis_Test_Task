@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using ScriptableValues;
 using UnityEngine;
 
-public class GiveExpScript : InteractiveObject
+public class DamageCapsuleScript : InteractiveObject
 {
     [SerializeField] private PlayerIndicators _playerIndicators;
 
@@ -15,9 +13,9 @@ public class GiveExpScript : InteractiveObject
 
             if (Physics.Raycast(ray, out var hit))
             {
-                if (hit.transform.name == "ExpSphere")
+                if (hit.transform.name == "DamageCapsule")
                 {
-                    _playerIndicators.experience += 10;
+                    _playerIndicators.health -= 10;
                 }
             }
         }

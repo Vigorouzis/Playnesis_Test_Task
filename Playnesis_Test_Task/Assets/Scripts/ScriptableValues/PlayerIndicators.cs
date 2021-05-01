@@ -7,7 +7,5 @@ namespace ScriptableValues
     {
         public double health;
         public double experience;
-   
-
     }
 }
