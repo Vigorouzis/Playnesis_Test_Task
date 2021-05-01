@@ -7,9 +7,9 @@ using UnityEngine;
 public class InteractiveObject : MonoBehaviour
 {
     protected Camera _camera;
+
     public Renderer rend;
     private float _maxRange = 10f;
-
     [SerializeField] protected GameObject _player;
     protected static readonly int Property = Shader.PropertyToID("_Outline");
 
@@ -23,16 +23,17 @@ public class InteractiveObject : MonoBehaviour
     private void Update()
     {
         BasicAction();
-        CheckDistance();
+        InvokeRepeating(nameof(CheckDistance), 0f, 1f);
     }
 
-    protected virtual void CheckDistance()
+    private void CheckDistance()
     {
         if (Vector3.Distance(gameObject.transform.position, _player.transform.position) <= _maxRange)
         {
             if (Physics.Raycast(transform.position, (_player.transform.position - transform.position), out var hit,
                 _maxRange))
             {
+                Debug.DrawRay(transform.position, hit.transform.position, Color.yellow);
                 if (hit.transform.CompareTag("Player"))
                 {
                     rend.material.SetFloat(Property, 0.5f);

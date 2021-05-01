@@ -1,11 +1,12 @@
-using ScriptableValues;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class DamageCapsuleScript : InteractiveObject
+public class SphereWithViewScript : InteractiveObject
 {
-    [SerializeField] private PlayerIndicators _playerIndicators;
-
+    [SerializeField] private Text _textAboveObject;
 
     protected override void BasicAction()
     {
@@ -15,11 +16,10 @@ public class DamageCapsuleScript : InteractiveObject
 
             if (Physics.Raycast(ray, out var hit))
             {
-                Debug.DrawRay(_camera.transform.position, hit.transform.position, Color.yellow);
-
-                if (hit.transform.name == "DamageCapsule")
+                Debug.Log(hit.transform.name);
+                if (hit.transform.name == "SphereWithView")
                 {
-                    _playerIndicators.health -= 10;
+                    _textAboveObject.gameObject.SetActive(true);
                 }
             }
         }
