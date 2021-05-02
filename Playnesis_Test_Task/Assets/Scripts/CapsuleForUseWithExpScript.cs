@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class CapsuleForUseWithExpScript : InteractiveObject
 {
+
+    [SerializeField] private QuantitiesForChanges _quantities;
     
-   
     private static readonly int Property = Shader.PropertyToID("_Color");
 
     private void FixedUpdate()
@@ -21,7 +22,7 @@ public class CapsuleForUseWithExpScript : InteractiveObject
         var position = transform.position;
         if (Vector3.Distance(_playerIndicators.position, position) <= _maxRange)
         {
-            if (_playerIndicators.experience < 30)
+            if (_playerIndicators.experience < _quantities.needExpForInteract)
             {
                 Debug.Log("yellow");
                 _renderer.material.SetColor(Property, Color.yellow);

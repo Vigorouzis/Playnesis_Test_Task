@@ -7,5 +7,6 @@ namespace ScriptableValues
     {
         public int damage;
         public int addExp;
+        public int needExpForInteract;
     }
 }
