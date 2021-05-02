@@ -8,40 +8,39 @@ public class InteractiveObject : MonoBehaviour
 {
     protected Camera _camera;
 
-    public Renderer rend;
-    private float _maxRange = 10f;
+    
+    public Renderer _renderer;
+    protected float _maxRange = 10f;
     [SerializeField] protected PlayerIndicators _playerIndicators;
-    protected static readonly int Property = Shader.PropertyToID("_Outline");
+    private static readonly int Property = Shader.PropertyToID("_Outline");
 
 
     private void Start()
     {
         _camera = Camera.main;
-        rend.material.shader = Shader.Find("Outlined/Custom");
+        _renderer.material.shader = Shader.Find("Outlined/Custom");
     }
 
     private void Update()
     {
         BasicAction();
-        InvokeRepeating(nameof(CheckDistance), 0f, 0.1f);
+        CheckDistance();
     }
 
-    private void CheckDistance()
+    protected virtual void CheckDistance()
     {
-        if (Vector3.Distance(gameObject.transform.position, _playerIndicators.position) <= _maxRange)
+        var position = transform.position;
+
+
+        if (Vector3.Distance(_playerIndicators.position, position) <= _maxRange)
+
         {
-            if (Physics.Raycast(transform.position, (_playerIndicators.position - transform.position), out var hit,
-                _maxRange))
-            {
-                if (hit.transform.CompareTag("Player"))
-                {
-                    rend.material.SetFloat(Property, 0.5f);
-                }
-            }
+            _renderer.material.SetFloat(Property, 0.5f);
         }
+
         else
         {
-            rend.material.SetFloat(Property, 0);
+            _renderer.material.SetFloat(Property, 0f);
         }
     }
 

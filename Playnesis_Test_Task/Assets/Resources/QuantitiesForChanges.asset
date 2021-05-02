@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41e119a85b7d4f4da950026b179af32, type: 3}
   m_Name: QuantitiesForChanges
   m_EditorClassIdentifier: 
-  damage: 0
-  addExp: 0
+  damage: 10
+  addExp: 10

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6718248131827926144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6718248131827926146}
+  - component: {fileID: 6718248131827926145}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6718248131827926146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718248131827926144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.447656, y: 4.96883, z: 22.391006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6718248131827926145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718248131827926144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4821409592b97a14385c5d8d8f8929df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObjectsList:
+  - {fileID: 3214027371752570200, guid: 1b2c237fc9c816943a1bdb9a4b0861e1, type: 3}
+  - {fileID: 513737977725407281, guid: f28e623eb23165d4e9432e93d5f29c2b, type: 3}
+  - {fileID: 5270231583930027167, guid: f8f230938d165b5438ad4d9479efd64e, type: 3}
+  - {fileID: 4826711838110571597, guid: e0a1ceac01dc0b54387b8b6f4f767e4a, type: 3}
+  - {fileID: 8178809885975580430, guid: e6b62ca774d0f2e489dbfd12b6884649, type: 3}
+  - {fileID: 3983456015260869255, guid: e3bfce4050bc9a746a4cfe47ad8853b4, type: 3}
+  - {fileID: 6313254724005070273, guid: a35c11e933091cc4ab9f477fefd36c46, type: 3}
+  - {fileID: 4946012568520579231, guid: c3e716e8f70e24f468f417329dc2cdfb, type: 3}
+  _coordinates: {fileID: 11400000, guid: 7b8867e4963742245b16cf3fbf75d990, type: 2}
+  _spawnType: 0
